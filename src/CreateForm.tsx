@@ -56,7 +56,7 @@ export const CreateForm = (props: any) => {
           type="primary"
           style={{ marginLeft: "8px" }}
           onClick={() => {
-            console.log("New column existing fields",fields);
+            // console.log("New column existing fields",fields);
             let id= uniqueId("field_");
             let existingFields = fields;
             let vals = {

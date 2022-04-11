@@ -143,12 +143,7 @@ const FormFieldSelection = (props: any) => {
         effects() {
           onFormMount(() => {});
           onFormValuesChange((form) => {
-            console.log("Form changes", form, {
-              nane: form.values.dataName,
-              type: form.values.type,
-              description: form.values.description,
-              values: form.values.dropdownValues,
-            });
+            
             if (
               form.values.dataName ||
               form.values.type ||

@@ -49,7 +49,7 @@ const getDropdownInput = (
     label: e,
     value: e,
   }));
-  console.log("Values", values);
+  // console.log("Values", values);
   return {
     ["dropdown_" + id]: {
       type: "string",
@@ -110,7 +110,7 @@ const SubmitForm = (props: any) => {
           createForm({
             effects() {
               onFormValuesChange((form) => {
-                console.log("values changed", props);
+                // console.log("values changed", props);
               });
             },
           }),
@@ -119,7 +119,7 @@ const SubmitForm = (props: any) => {
   let formProperties = {};
   let params = useParams();
   let formToSubmit = props.forms.find((form: any) => form.id === params.id);
-  console.log("Form to submit", props);
+  // console.log("Form to submit", props);
   if (!formToSubmit) {
       return (<>error occured</>);
   }
