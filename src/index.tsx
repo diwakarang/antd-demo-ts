@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 ReactDOM.render(
   <React.StrictMode>
-   <BrowserRouter>
+   <BrowserRouter basename="/antd-demo-ts">
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="new" element={<App type="new"/>} />
