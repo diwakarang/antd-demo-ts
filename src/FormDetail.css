@@ -1,0 +1,4 @@
+:host .ant-formily-item-label{
+    display: flex;
+    gap: 5px;
+}
