@@ -1,14 +1,10 @@
 import React from "react";
-
 import { Layout, Menu } from "antd";
-// import App from "./App";
 import { Button } from "antd";
-import CreateForm from "./CreateForm";
 import { Link } from "react-router-dom";
 
-const { Header, Sider, Content } = Layout;
+const { Sider } = Layout;
 export const Container = (props: any) => {
-  let forms = [{ name: "Form 1",id:'form_1' }, { name: "Form 2",id:"form_2" }];
   return (
     <Layout>
       <Sider>

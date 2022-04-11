@@ -4,7 +4,6 @@ import { Button } from "antd";
 import React, { useMemo } from "react";
 import { Link, useParams } from "react-router-dom";
 import { FormItem, Input, FormLayout, Select, Checkbox } from "@formily/antd";
-import "./SubmitForm.css";
 const SchemaField = createSchemaField({
   components: {
     Input,
@@ -25,12 +24,9 @@ const getTextInput = (id: string, name: string, description: string) => {
       "x-decorator-props": {
         style: {
           display: "flex",
-          //   gap: "200px",
           width: "500px",
           padding: "8px",
           verticalAlign: "center",
-          //   maxWidth: "350px",
-          //   justifyContent: "space-between",
         },
         fullness: true,
         feedbackLayout: "none",
@@ -64,11 +60,9 @@ const getDropdownInput = (
       "x-decorator-props": {
         style: {
           display: "flex",
-          //   gap: "200px",
           width: "500px",
           padding: "8px",
           verticalAlign: "center",
-          //   justifyContent: "space-between",
         },
         fullness: true,
         feedbackLayout: "none",
@@ -95,12 +89,10 @@ const getCheckboxInput = (id: string, name: string, description: string) => {
       required: false,
       "x-decorator-props": {
         style: {
-          //   gap: "200px",
           display: "flex",
           width: "500px",
           padding: "8px",
           verticalAlign: "center",
-          //   justifyContent: "space-between",
         },
         labelWidth: "250px",
         fullness: true,
@@ -152,7 +144,6 @@ const SubmitForm = (props: any) => {
       formProperties = { ...formProperties, ...checkboxInput };
     }
   });
-  console.log("Formproperties", formProperties);
   let schema = {
     type: "object",
     properties: {
@@ -172,7 +163,6 @@ const SubmitForm = (props: any) => {
       },
     },
   };
-  console.log("enterdata", props.forms);
 
   const submitValues = () => {
     let newSubmission: { [key: string]: any } = {};
@@ -180,7 +170,6 @@ const SubmitForm = (props: any) => {
       newSubmission[f] = form.values[f];
     });
     formToSubmit.submissions = [...formToSubmit.submissions, newSubmission];
-    console.log('Form to submit',formToSubmit);
   };
   
   return (

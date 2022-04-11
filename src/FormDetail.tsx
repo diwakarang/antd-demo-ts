@@ -1,44 +1,14 @@
 import React, { useMemo } from "react";
 import {
-  NumberPicker,
   FormItem,
-  Space,
   Input,
   FormLayout,
-  FormButtonGroup,
-  Submit,
 } from "@formily/antd";
 import { createForm, onFormValuesChange } from "@formily/core";
-import { FormProvider, FormConsumer, Field } from "@formily/react";
-import { FormGrid } from "@formily/antd";
+import { FormProvider} from "@formily/react";
 import { Select } from "@formily/antd";
 import { createSchemaField } from "@formily/react";
 import "./FormDetail.css";
-
-// const FormDetail =  () => {return ( <FormProvider form={form}>
-//     <FormLayout
-//     layout={["vertical"]}
-
-//     labelCol={6} wrapperCol={10} labelAlign="left"
-//     labelWidth={24} wrapperAlign="left" labelWrap={false} size="small" inset={false}>
-//       <Field
-//         name="name"
-//         required
-//         title="Name"
-//         decorator={[FormItem]}
-//         component={[Input]}
-//       />
-//       <Field
-//         name="description"
-//         required
-//         title="description"
-//         decorator={[FormItem]}
-//         component={[Input]}
-//       />
-//       <FormButtonGroup.FormItem>
-//         <Submit onSubmit={console.log}>Add Column</Submit>
-//       </FormButtonGroup.FormItem>
-//     </FormLayout></FormProvider>)}
 
 const SchemaField = createSchemaField({
   components: {
@@ -117,11 +87,6 @@ const FormDetail = (props: any) => {
       createForm({
         effects() {
           onFormValuesChange((form) => {
-            console.log(
-              "metadata changes",
-              form.values.nameInput,
-              form.values.descriptionInput
-            );
             props.setMetadata({
               name: form.values.nameInput,
               description: form.values.descriptionInput,

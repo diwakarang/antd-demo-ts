@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import '~antd/dist/antd.css';
+ import 'antd/dist/antd.css';
 import "./App.css";
 import { Container } from "./Container";
 import CreateForm from "./CreateForm";
@@ -36,9 +36,7 @@ const App = (props: any) => {
       ],
       submissions: [],
       description: ''
-    },
-    // { name: "Form 2", id: "form_2",formConfig:{},submissions:[] },
-    // { name: "Form 3", id: "form_3",formConfig:{},submissions:[] },
+    }
   ]);
   const addNewForm = (newForm: any) => {
     let newForms = [...forms, newForm];

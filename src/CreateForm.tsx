@@ -1,9 +1,7 @@
 import { Button } from "antd";
-// import { randomUUID } from "crypto";
 import React, { useState } from "react";
 import FormDetail from "./FormDetail";
 import FormFieldList from "./FormFieldList";
-import FormFieldSelection from "./FormFieldSelection";
 import { uniqueId } from "lodash-es";
 var Ffields= [{
   id: "field_0",
@@ -30,19 +28,7 @@ export const CreateForm = (props: any) => {
     },
   ]);
   const updateControlsFunction = (id:any,vals:any)=>{
-    // const existingFields = fields.filter((entry) => entry.id !== id);
-    // console.log('before update',{id,vals,existingFields});
-    // const newFields = [
-    //   ...existingFields,
-    //   {
-    //     id: id,
-    //     ...vals,
-    //   },
-    // ];
-    // console.log("New Fields", newFields);
-    // setFields([...newFields]);
     const existingFieldVals = (Ffields||[]).filter((entry:any) => entry.id !== id);
-    console.log('before update',{id,vals,existingFieldVals,fields});
     const newFieldVals = [
       ...(existingFieldVals||[]),
       {
@@ -50,13 +36,8 @@ export const CreateForm = (props: any) => {
         ...vals,
       },
     ];
-    console.log("New Fields in setVals separate call not object",fields, newFieldVals);
     setFFields([...newFieldVals]);
   }
-  const [fieldVals, setFieldVals] = useState([{ id: "field_0",
-  name: "",
-  type: "text",
-  description: ""}]);
   const [formMetadata, setFormMetadata] = useState({
     name: "",
     description: "",
@@ -77,7 +58,6 @@ export const CreateForm = (props: any) => {
           onClick={() => {
             console.log("New column existing fields",fields);
             let id= uniqueId("field_");
-            // props.addField(form);
             let existingFields = fields;
             let vals = {
               name: "",
@@ -88,17 +68,6 @@ export const CreateForm = (props: any) => {
               description: "",
               dropdownValues:""
             }
-            // const existingFieldVals = (fieldVals||[]).filter((entry) => entry.id !== id);
-            // console.log('while adding column before',{id,vals,existingFieldVals,fields});
-            // const newFieldVals = [
-            //   ...(existingFieldVals),
-            //   {
-            //     id: id,
-            //     ...vals,
-            //   },
-            // ];
-            // console.log("New while adding column",fields, newFieldVals);
-            // setFieldVals([...newFieldVals]);
 
             setFields([
               ...existingFields,
@@ -118,52 +87,11 @@ export const CreateForm = (props: any) => {
           Add column
         </Button>
       </>
-      {/* <div> */}
-      {/* <FormFieldSelection
-        addField={(val: any) => {
-          console.log("Add new field to create form", {
-            name: val.values.dataName,
-            type: val.values.formType,
-            description: val.values.description,
-          });
-          setFields([
-            ...(fields || []),
-            {
-              name: val.values.dataName,
-              type: val.values.formType,
-              description: val.values.description,
-            },
-          ]);
-        }}
-      /> */}
-      {/* </div> */}
+      
       <div>
         <FormFieldList fieldList={fields} ></FormFieldList>
       </div>
       <div>
-      {/* {fields.map((field: any, index: any) => {
-        return (
-            <FormFieldSelection 
-             key={"field_" + field.id}
-              field={field}
-              fields={fields}
-              setVals={(id:any,vals:any)=>{
-                let existingFieldVals = (Ffields).filter(
-                (entry: any) => entry.id !== id
-              );
-              console.log(" list call explicity", { id, vals, existingFieldVals });
-              let newFieldVals = [
-                ...existingFieldVals ,
-                {
-                  id: id,
-                  ...vals,
-                },
-              ];
-              console.log("list call explicity", {newFieldVals,fields,fieldVals});
-              setFFields([...newFieldVals]);}}
-            ></FormFieldSelection>
-        );
-      })} */}
       </div>
       <div>
         <div
@@ -179,14 +107,6 @@ export const CreateForm = (props: any) => {
           <Button
             type="primary"
             onClick={() => {
-              console.log('FFields',Ffields);
-              console.log("Field configuration", {
-                name: formMetadata.name,
-                description: formMetadata.description,
-                formConfig: [...Ffields],
-                id: uniqueId("form_"),
-                submissions: [],
-              });
               props.addNewForm({
                 name: formMetadata.name,
                 description: formMetadata.description,
